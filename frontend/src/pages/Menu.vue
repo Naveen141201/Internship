@@ -76,37 +76,37 @@
                 <div class="row filter-section">
                     <ul class="filter-option">
                         <li>
-                            <input type="button" name="rPrice" id="rtfPrice" value="2,5" hidden
+                            <input type="button" name="rPrice" id="rtfPrice" value="20,50" hidden
                                 @click="filterPriceBtn($event)" />
-                            <label for="rtfPrice" class="d-flex justify-content-between">$2 - $5 <button
+                            <label for="rtfPrice" class="d-flex justify-content-between">₹20 - ₹50 <button
                                     class="unselect-btn" @click="unselectPriceBtn($event)">X</button></label>
                         </li>
 
                         <li>
-                            <input type="button" name="rPrice" id="rftPrice" value="5,10" hidden
+                            <input type="button" name="rPrice" id="rftPrice" value="50,100" hidden
                                 @click="filterPriceBtn($event)" />
-                            <label for="rftPrice" class="d-flex justify-content-between">$5 - $10 <button
+                            <label for="rftPrice" class="d-flex justify-content-between">₹50 - ₹100 <button
                                     class="unselect-btn" @click="unselectPriceBtn($event)">X</button></label>
                         </li>
 
                         <li>
-                            <input type="button" name="rPrice" id="rttPrice" value="10,12" hidden
+                            <input type="button" name="rPrice" id="rttPrice" value="100,120" hidden
                                 @click="filterPriceBtn($event)" />
-                            <label for="rttPrice" class="d-flex justify-content-between">$10 - $12 <button
+                            <label for="rttPrice" class="d-flex justify-content-between">₹100 - ₹120 <button
                                     class="unselect-btn" @click="unselectPriceBtn($event)">X</button></label>
                         </li>
 
                         <li>
-                            <input type="button" name="rPrice" id="mtPrice" value="12" hidden
+                            <input type="button" name="rPrice" id="mtPrice" value="120" hidden
                                 @click="filterPriceBtn($event)" />
-                            <label for="mtPrice" class="d-flex justify-content-between">{{ ">" }} $12 <button
+                            <label for="mtPrice" class="d-flex justify-content-between">{{ ">" }} ₹120 <button
                                     class="unselect-btn" @click="unselectPriceBtn($event)">X</button></label>
                         </li>
 
                         <li>
-                            <input type="button" name="rPrice" id="ltPrice" value="2" hidden
+                            <input type="button" name="rPrice" id="ltPrice" value="20" hidden
                                 @click="filterPriceBtn($event)" />
-                            <label for="ltPrice" class="d-flex justify-content-between">{{ "<" }} $2 <button
+                            <label for="ltPrice" class="d-flex justify-content-between">{{ "<" }} ₹20 <button
                                     class="unselect-btn" @click="unselectPriceBtn($event)">X</button></label>
                         </li>
 
@@ -182,8 +182,8 @@
                                     <p>{{ f.food_desc }}</p>
                                 </div>
                                 <div class="price">
-                                    ${{ parseFloat(f.food_price) - parseFloat(f.food_discount) }}
-                                    <span v-if="parseFloat(f.food_discount) != 0.00">${{ parseFloat(f.food_price)
+                                    ₹{{ parseFloat(f.food_price) - parseFloat(f.food_discount) }}
+                                    <span v-if="parseFloat(f.food_discount) != 0.00">₹{{ parseFloat(f.food_price)
                                     }}</span>
                                 </div>
                                 <button class="btn" @click="addItem(index)">Add to cart</button>
@@ -343,28 +343,28 @@ export default {
         evaluatePrice: function (food, priceRange) {
             this.pageNum = 0;
             var cal = parseFloat(food.food_price) - parseFloat(food.food_discount);
-            if (priceRange == "2,5") {
-                if (2 <= cal && cal <= 5) {
+            if (priceRange == "20,50") {
+                if (20 <= cal && cal <= 50) {
                     return food;
                 }
             }
-            else if (priceRange == "5,10") {
-                if (5 <= cal && cal <= 10) {
+            else if (priceRange == "50,100") {
+                if (50 <= cal && cal <= 100) {
                     return food;
                 }
             }
-            else if (priceRange == "10,12") {
-                if (10 <= cal && cal <= 12) {
+            else if (priceRange == "100,120") {
+                if (100 <= cal && cal <= 120) {
                     return food;
                 }
             }
-            else if (priceRange == "2") {
-                if (cal <= 2) {
+            else if (priceRange == "20") {
+                if (cal <= 20) {
                     return food;
                 }
             }
-            else if (priceRange == "12") {
-                if (cal >= 12) {
+            else if (priceRange == "120") {
+                if (cal >= 120) {
                     return food;
                 }
             }
